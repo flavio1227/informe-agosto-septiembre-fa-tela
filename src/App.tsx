@@ -10,20 +10,19 @@ import {
 } from 'lucide-react'
 import { NavLockProvider, useNavLock } from './components/primitives'
 import {
+  ActivitySlide,
   AgendaSlide,
   ClosingSlide,
+  ColagenoSlide,
   CoverSlide,
-  DegustacionSlide,
-  GuanoSlide,
-  HicaqueSlide,
-  SorteoSlide,
+  MapSlide,
+  MonthDivider,
+  PlanSlide,
   SummarySlide,
-  TerencioGallerySlide,
-  TerencioStorySlide,
 } from './components/slides'
-import { AGENDA } from './data/content'
+import { AGENDA, AGOSTO, SEPTIEMBRE } from './data/content'
 
-const TOTAL = 10
+const TOTAL = 18
 
 function useFullscreen() {
   const [on, setOn] = useState(false)
@@ -117,16 +116,29 @@ function Presentation() {
 
   const slides = useMemo(
     () => [
-      <CoverSlide key="0" />,
-      <AgendaSlide key="1" goTo={goTo} />,
-      <SummarySlide key="3" goTo={goTo} />,
-      <DegustacionSlide key="4" />,
-      <TerencioStorySlide key="5" goTo={goTo} />,
-      <TerencioGallerySlide key="6" />,
-      <SorteoSlide key="7" />,
-      <GuanoSlide key="8" />,
-      <HicaqueSlide key="9" />,
-      <ClosingSlide key="10" goTo={goTo} />,
+      <CoverSlide key="cover" />,
+      <AgendaSlide key="agenda" goTo={goTo} />,
+      <SummarySlide key="summary" goTo={goTo} />,
+      <MonthDivider
+        key="ago"
+        month="Agosto 2026"
+        title="Actividades de agosto"
+        description="Capacitación, jornada de piel, volanteo y perifoneo en la zona."
+        photo="photos/ago-pajuiles/01.jpg"
+      />,
+      ...AGOSTO.map((a) => <ActivitySlide key={a.id} {...a} />),
+      <MonthDivider
+        key="sep"
+        month="Septiembre 2026"
+        title="Actividades de septiembre"
+        description="Día del niño, jornada médica, plan de acción, fiestas patrias y vallas."
+        photo="photos/sep-fiesta/01.jpg"
+      />,
+      ...SEPTIEMBRE.map((a) => <ActivitySlide key={a.id} {...a} />),
+      <ColagenoSlide key="colageno" />,
+      <PlanSlide key="plan" />,
+      <MapSlide key="map" />,
+      <ClosingSlide key="close" goTo={goTo} />,
     ],
     [goTo],
   )
@@ -136,7 +148,7 @@ function Presentation() {
       const start = item.index
       const end = AGENDA[i + 1]?.index ?? TOTAL
       return index >= start && index < end
-    })?.label ?? (index === 0 ? 'Portada' : 'Cierre')
+    })?.label ?? (index === 0 ? 'Portada' : index === TOTAL - 1 ? 'Cierre' : '')
 
   return (
     <div className="relative h-screen w-screen overflow-hidden bg-ink text-cream">
@@ -233,7 +245,7 @@ function Presentation() {
                 <X className="h-4 w-4" />
               </button>
             </div>
-            <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
+            <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-3">
               <button
                 type="button"
                 onClick={() => goTo(0)}
