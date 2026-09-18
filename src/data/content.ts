@@ -243,11 +243,11 @@ export const PLAN = {
 export const AGENDA = [
   { label: 'Agosto', index: 2 },
   { label: 'Septiembre', index: 7 },
-  { label: 'Octubre', index: 13 },
-  { label: 'Noviembre', index: 15 },
-  { label: 'Colágeno', index: 17 },
-  { label: 'Plan de acción', index: 18 },
-  { label: 'Mapa', index: 19 },
+  { label: 'Colágeno', index: 13 },
+  { label: 'Plan de acción', index: 14 },
+  { label: 'Mapa', index: 15 },
+  { label: 'Octubre', index: 16 },
+  { label: 'Noviembre', index: 18 },
 ]
 
 // ---------- PLAN DE OCTUBRE (Excel: hoja PT Septiembre a Octubre) ----------

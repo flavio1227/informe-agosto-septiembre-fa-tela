@@ -20,11 +20,11 @@ Presentación ejecutiva interactiva de las actividades de **agosto a noviembre 2
 | Portada y agenda | 1–2 |
 | Agosto | 3–7 (capacitación, jornada de piel, volanteo Pajuiles, perifoneos) |
 | Septiembre | 8–13 (día del niño, jornada médica, plan de acción en tabla, fiestas patrias, vallas) |
-| Octubre | 14–15 (plan de acción: zonas, actividades y presupuesto) |
-| Noviembre | 16–17 (plan de acción: zonas y actividades adicionales) |
-| Degustación de Colágeno | 18 (tabla del Excel + carrusel de fotografías) |
-| Plan de acción | 19 (zonas julio–noviembre, presupuestos ago/sep/oct) |
-| Mapa | 20 (Google Maps centrado en Tela) |
+| Degustación de Colágeno | 14 (tabla del Excel + carrusel de fotografías) |
+| Plan de acción | 15 (zonas julio–noviembre, presupuestos ago/sep/oct) |
+| Mapa | 16 (Google Maps centrado en Tela) |
+| Octubre | 17–18 (plan de acción: zonas, actividades y presupuesto) |
+| Noviembre | 19–20 (plan de acción: zonas y actividades adicionales) |
 | Cierre | 21 |
 
 ## Controles

@@ -138,6 +138,9 @@ function Presentation() {
       ...SEPTIEMBRE.slice(0, 2).map((a) => <ActivitySlide key={a.id} {...a} />),
       <SepPlanSlide key="sep-plan" />,
       ...SEPTIEMBRE.slice(2).map((a) => <ActivitySlide key={a.id} {...a} />),
+      <ColagenoSlide key="colageno" />,
+      <PlanSlide key="plan" />,
+      <MapSlide key="map" />,
       <MonthDivider
         key="oct"
         month="Octubre 2026"
@@ -152,9 +155,6 @@ function Presentation() {
         description="Volanteo programado, degustaciones, café gratis, jornada médica y ruleta regalona."
       />,
       <NovPlanSlide key="nov-plan" />,
-      <ColagenoSlide key="colageno" />,
-      <PlanSlide key="plan" />,
-      <MapSlide key="map" />,
       <ClosingSlide key="close" goTo={goTo} />,
     ],
     [goTo],
