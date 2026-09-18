@@ -33,20 +33,30 @@ export function Carousel({ photos, className = '' }: { photos: Photo[]; classNam
 
   return (
     <div className={`flex min-h-0 flex-col ${className}`}>
-      <div className="group/car relative min-h-0 flex-1 overflow-hidden rounded-2xl bg-pine">
+      <div className="group/car relative min-h-0 flex-1 overflow-hidden rounded-2xl bg-ink">
         <AnimatePresence mode="popLayout" custom={dir} initial={false}>
-          <motion.img
+          <motion.div
             key={photo.src}
-            src={photo.src}
-            alt={photo.caption}
             custom={dir}
             initial={{ opacity: 0, x: dir * 60 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: dir * -60 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute inset-0 h-full w-full cursor-zoom-in object-cover"
-            onClick={() => box.open(i)}
-          />
+            className="absolute inset-0"
+          >
+            <img
+              src={photo.src}
+              alt=""
+              aria-hidden
+              className="absolute inset-0 h-full w-full scale-110 object-cover opacity-35 blur-2xl"
+            />
+            <img
+              src={photo.src}
+              alt={photo.caption}
+              className="absolute inset-0 m-auto max-h-full max-w-full cursor-zoom-in object-contain"
+              onClick={() => box.open(i)}
+            />
+          </motion.div>
         </AnimatePresence>
         <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-ink/85 via-transparent to-ink/25" />
 
