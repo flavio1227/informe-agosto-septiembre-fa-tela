@@ -6,6 +6,7 @@ import {
   COLAGENO,
   MAPS_EMBED,
   META,
+  OCT_ACT,
   PLAN,
   SEP_PLAN,
   asset,
@@ -179,7 +180,7 @@ export function CoverSlide() {
             {META.period} {META.year}
           </p>
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-cream/80 md:mt-6 md:text-base">
-            Capacitación, jornadas, volanteo, degustación de colágeno y presencia de marca en la zona.
+            Capacitación, jornadas, volanteo, degustación de colágeno y presencia de marca en la zona, con el plan de octubre.
           </p>
         </div>
         <p className="text-[0.65rem] tracking-[0.18em] text-mute uppercase md:text-xs">
@@ -196,7 +197,7 @@ export function AgendaSlide({ goTo }: { goTo: GoTo }) {
       <Kicker>{META.period}</Kicker>
       <Title>Agenda</Title>
       <p className="mt-3 max-w-2xl text-sm text-cream/70 md:text-base">
-        Un recorrido por las actividades de agosto y septiembre. Pulse cualquier bloque para saltar.
+        Un recorrido por las actividades de agosto, septiembre y octubre. Pulse cualquier bloque para saltar.
       </p>
       <div className="mt-6 grid flex-1 grid-cols-2 gap-3 md:mt-8 md:gap-4 lg:grid-cols-3">
         {AGENDA.map((item, i) => (
@@ -229,12 +230,18 @@ export function MonthDivider({
   month: string
   title: string
   description: string
-  photo: string
+  photo?: string
 }) {
   return (
     <div className="relative h-full w-full overflow-hidden">
-      <img src={asset(photo)} alt="" className="absolute inset-0 h-full w-full object-cover" />
-      <div className="absolute inset-0 bg-ink/72" />
+      {photo ? (
+        <img src={asset(photo)} alt="" className="absolute inset-0 h-full w-full object-cover" />
+      ) : null}
+      <div
+        className={`absolute inset-0 ${
+          photo ? 'bg-ink/72' : 'bg-linear-to-br from-pine via-ink to-forest'
+        }`}
+      />
       <div className="slide-safe relative z-10 flex h-full flex-col justify-center">
         <p className="text-[0.7rem] tracking-[0.32em] text-gold uppercase md:text-[0.78rem]">{month}</p>
         <h1 className="font-display mt-3 max-w-3xl text-[clamp(2.2rem,6vw,5rem)] leading-[1.02]">
@@ -312,6 +319,104 @@ export function SepPlanSlide() {
           </div>
         </div>
         <Carousel photos={docPhoto} className="min-h-[220px]" />
+      </div>
+    </div>
+  )
+}
+
+export function OctPlanSlide() {
+  const zonas = PLAN.zonas.filter((z) => z.mes === 'Octubre')
+  const presupuesto = PLAN.presupuesto.find((p) => p.mes === 'Octubre')
+  return (
+    <div className="slide-safe flex h-full flex-col overflow-y-auto">
+      <Kicker>Octubre</Kicker>
+      <Title>Plan de acción · octubre</Title>
+      <p className="mt-1 text-base text-gold/90 md:text-lg">
+        Zona Tela Atlántida · Enfoque domicilio y venta local
+      </p>
+      <div className="mt-4 grid min-h-0 flex-1 grid-cols-1 gap-4 md:mt-5 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="min-w-0 overflow-auto rounded-2xl border border-cream/10">
+          <table className="tbl w-full">
+            <thead className="sticky top-0 bg-pine">
+              <tr className="text-left">
+                <th className="px-3 py-2.5 font-medium text-cream/70">Zona a volantear</th>
+                <th className="px-3 py-2.5 font-medium text-cream/70">Fecha</th>
+                <th className="px-3 py-2.5 text-right font-medium text-cream/70">Volantes</th>
+                <th className="hidden px-3 py-2.5 text-right font-medium text-cream/70 sm:table-cell">Habitantes</th>
+                <th className="px-3 py-2.5 font-medium text-cream/70">Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              {zonas.map((z) => (
+                <tr key={z.zona} className="border-t border-cream/8">
+                  <td className="px-3 py-2">{z.zona}</td>
+                  <td className="px-3 py-2 whitespace-nowrap text-cream/70">{z.fecha}</td>
+                  <td className="px-3 py-2 text-right">{z.volantes.toLocaleString('es-HN')}</td>
+                  <td className="hidden px-3 py-2 text-right text-cream/70 sm:table-cell">
+                    {z.habitantes.toLocaleString('es-HN')}
+                  </td>
+                  <td className="px-3 py-2"><StatusPill estado={z.estado} /></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div className="border-t border-cream/10 px-3 py-3">
+            <p className="mb-2 text-[0.68rem] font-medium tracking-[0.2em] text-gold uppercase">
+              Actividades adicionales · FA42
+            </p>
+            <ul className="space-y-1.5">
+              {OCT_ACT.map((a) => (
+                <li key={a.nombre} className="flex items-start justify-between gap-3 text-sm">
+                  <span className="min-w-0">
+                    <span className="text-cream">{a.nombre}</span>
+                    <span className="block text-xs text-cream/55">
+                      {a.fecha} · {a.detalle}
+                    </span>
+                  </span>
+                  <StatusPill estado={a.estado} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        {presupuesto ? (
+          <div className="min-w-0 overflow-auto rounded-2xl border border-cream/10">
+            <div className="bg-pine px-4 py-3">
+              <p className="text-xs text-mute">Presupuesto octubre 2026</p>
+              <p className="kpi-number mt-0.5 text-2xl text-leaf md:text-3xl">
+                L {presupuesto.total.toLocaleString('es-HN')}
+              </p>
+            </div>
+            <table className="tbl w-full">
+              <thead>
+                <tr className="bg-pine/60 text-left">
+                  <th className="px-4 py-2.5 font-medium text-cream/70">Concepto</th>
+                  <th className="px-4 py-2.5 text-right font-medium text-cream/70">P. unitario</th>
+                  <th className="px-4 py-2.5 text-right font-medium text-cream/70">Cantidad</th>
+                  <th className="px-4 py-2.5 text-right font-medium text-cream/70">Valor</th>
+                </tr>
+              </thead>
+              <tbody>
+                {presupuesto.items.map((it) => (
+                  <tr key={it.concepto} className="border-t border-cream/8">
+                    <td className="px-4 py-2">{it.concepto}</td>
+                    <td className="px-4 py-2 text-right text-cream/70">L {it.precio.toLocaleString('es-HN')}</td>
+                    <td className="px-4 py-2 text-right text-cream/70">{it.cantidad}</td>
+                    <td className="px-4 py-2 text-right font-medium">L {it.valor.toLocaleString('es-HN')}</td>
+                  </tr>
+                ))}
+              </tbody>
+              <tfoot>
+                <tr className="border-t border-leaf/30 bg-fa/10">
+                  <td className="px-4 py-2.5 font-medium" colSpan={3}>Total</td>
+                  <td className="px-4 py-2.5 text-right font-semibold text-leaf">
+                    L {presupuesto.total.toLocaleString('es-HN')}
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        ) : null}
       </div>
     </div>
   )
@@ -395,7 +500,7 @@ export function PlanSlide() {
           </table>
         </div>
         <div className="flex min-h-0 flex-col gap-4">
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
             {PLAN.presupuesto.map((p) => (
               <div key={p.mes} className="rounded-2xl border border-cream/10 bg-pine/70 p-4">
                 <p className="text-xs text-mute md:text-sm">Presupuesto {p.mes}</p>

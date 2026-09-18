@@ -16,7 +16,7 @@ export const META = {
   pharmacy: 'Farmacias del Ahorro',
   zone: 'Zona Tela',
   stores: ['FA42', 'FA59'],
-  period: 'Agosto · Septiembre',
+  period: 'Agosto – Octubre',
   year: 2026,
   website: 'www.farmaciasdelahorro.hn',
 }
@@ -196,6 +196,10 @@ export const PLAN = {
     { mes: 'Septiembre', zona: 'Barrio 4 de Enero', fecha: 'Martes 15/9', volantes: 1000, colaboradores: 5, estado: 'Programado', habitantes: 954 },
     { mes: 'Septiembre', zona: 'Barrio El Retiro', fecha: 'Jueves 17/9', volantes: 1000, colaboradores: 5, estado: 'Programado', habitantes: 987 },
     { mes: 'Septiembre', zona: 'Barrio San José', fecha: 'Martes 22/9', volantes: 1000, colaboradores: 5, estado: 'Programado', habitantes: 2181 },
+    { mes: 'Octubre', zona: 'Colonia Sitraterco', fecha: 'Jueves 08/11', volantes: 1000, colaboradores: 5, estado: 'Programado', habitantes: 1447 },
+    { mes: 'Octubre', zona: 'La Curva', fecha: 'Martes 13/10', volantes: 1000, colaboradores: 5, estado: 'Programado', habitantes: 1107 },
+    { mes: 'Octubre', zona: 'Las Brisas', fecha: 'Jueves 15/10', volantes: 1000, colaboradores: 5, estado: 'Programado', habitantes: 924 },
+    { mes: 'Octubre', zona: 'Buena Vista', fecha: 'Martes 20/10', volantes: 600, colaboradores: 5, estado: 'Programado', habitantes: 591 },
   ],
   presupuesto: [
     { mes: 'Agosto', items: [
@@ -215,6 +219,15 @@ export const PLAN = {
       { concepto: 'Refrescos 15 de septiembre', precio: 300, cantidad: 6, valor: 1800 },
       { concepto: 'Microondas (sorteo)', precio: 3000, cantidad: 1, valor: 3000 },
     ], total: 8637 },
+    { mes: 'Octubre', items: [
+      { concepto: 'Kit de Resaca verano', precio: 40, cantidad: 100, valor: 4000 },
+      { concepto: 'Jugo Natura / Degustaciones', precio: 80, cantidad: 4, valor: 320 },
+      { concepto: 'Vasos cónicos', precio: 135, cantidad: 5, valor: 675 },
+      { concepto: 'Compra de pan', precio: 45, cantidad: 16, valor: 720 },
+      { concepto: 'Compra de café', precio: 341, cantidad: 2, valor: 682 },
+      { concepto: 'Recetarios médicos', precio: 1200, cantidad: 5, valor: 6000 },
+      { concepto: 'Set de ollas (sorteo)', precio: 3000, cantidad: 1, valor: 3000 },
+    ], total: 15397 },
   ],
   photos: [
     { src: asset('photos/plan/01.png'), caption: 'Plan de acción zona Tela.' },
@@ -226,9 +239,20 @@ export const PLAN = {
 export const AGENDA = [
   { label: 'Agosto', index: 2 },
   { label: 'Septiembre', index: 7 },
-  { label: 'Colágeno', index: 13 },
-  { label: 'Plan de acción', index: 14 },
-  { label: 'Mapa', index: 15 },
+  { label: 'Octubre', index: 13 },
+  { label: 'Colágeno', index: 15 },
+  { label: 'Plan de acción', index: 16 },
+  { label: 'Mapa', index: 17 },
+]
+
+// ---------- PLAN DE OCTUBRE (Excel: hoja PT Septiembre a Octubre) ----------
+export const OCT_ACT = [
+  { nombre: 'Presencia de marca / Feriado Morazánico', fecha: 'Sábado 03/10', estado: 'Programado', detalle: 'Entrega de kit · Bulevar de Tela / Kiosco' },
+  { nombre: 'Degustaciones de Colágeno', fecha: 'Todos los miércoles', estado: 'Programado', detalle: 'Impulsar producto Adiuvo' },
+  { nombre: 'Café Gratis', fecha: 'Todos los miércoles', estado: 'Programado', detalle: 'Café y galletas para clientes' },
+  { nombre: 'Jornada Médica General', fecha: 'Miércoles 14/10', estado: 'Programado', detalle: 'Consulta médica gratis / generar venta' },
+  { nombre: 'Sorteo de un Set de ollas', fecha: 'Sábado 31/10', estado: 'Programado', detalle: 'Dinámica de sorteo con clientes' },
+  { nombre: 'Elaboración de Recetarios Médicos', fecha: 'Sábado 31/10', estado: 'Programado', detalle: 'Fortalecer las relaciones con los médicos' },
 ]
 
 // ---------- PLAN DE SEPTIEMBRE (Excel de la carpeta) ----------
