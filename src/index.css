@@ -40,8 +40,19 @@ button {
 }
 
 .slide-safe {
+  height: 100%;
   padding: clamp(1.25rem, 3.2vw, 2.75rem) clamp(1.4rem, 4vw, 3.5rem)
     clamp(3.4rem, 6vh, 4.5rem);
+}
+
+.tbl {
+  font-size: clamp(0.72rem, 1.6vw, 0.875rem);
+}
+
+@media (max-width: 640px) {
+  .slide-safe {
+    padding: 1rem 1rem 4.2rem;
+  }
 }
 
 .kpi-number {

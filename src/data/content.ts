@@ -122,14 +122,6 @@ export const SEPTIEMBRE = [
     ]),
   },
   {
-    id: 'sep-plan',
-    kicker: 'Septiembre',
-    title: 'Plan de acción de septiembre',
-    subtitle: 'Zona Tela',
-    description: 'Plan de acción del mes de septiembre para la zona Tela.',
-    photos: folder('sep-plan', 1, ['Plan de acción de septiembre.']),
-  },
-  {
     id: 'sep-fiesta',
     kicker: 'Septiembre',
     title: 'Presencia en fiesta patria',
@@ -199,8 +191,8 @@ export const PLAN = {
     { mes: 'Agosto', zona: 'Triunfo de la Cruz', fecha: 'Jueves 13/8', volantes: 1000, colaboradores: 5, estado: 'Ejecutado', habitantes: 2509 },
     { mes: 'Agosto', zona: 'Ensenada', fecha: 'Jueves 13/8', volantes: 300, colaboradores: 5, estado: 'Ejecutado', habitantes: 204 },
     { mes: 'Agosto', zona: 'Pajuiles', fecha: 'Martes 18/8', volantes: 1000, colaboradores: 5, estado: 'Ejecutado', habitantes: 1905 },
-    { mes: 'Agosto', zona: 'Colonia 19 de Julio', fecha: 'Jueves 27/8', volantes: 1000, colaboradores: 5, estado: 'Programado', habitantes: 877 },
-    { mes: 'Septiembre', zona: 'Barrio El Paraíso', fecha: 'Jueves 8/9', volantes: 1000, colaboradores: 5, estado: 'Programado', habitantes: 1852 },
+    { mes: 'Agosto', zona: 'Colonia 19 de Julio', fecha: 'Jueves 27/8', volantes: 1000, colaboradores: 5, estado: 'Ejecutado', habitantes: 877 },
+    { mes: 'Septiembre', zona: 'Barrio El Paraíso', fecha: 'Jueves 8/9', volantes: 1000, colaboradores: 5, estado: 'Ejecutado', habitantes: 1852 },
     { mes: 'Septiembre', zona: 'Barrio 4 de Enero', fecha: 'Martes 15/9', volantes: 1000, colaboradores: 5, estado: 'Programado', habitantes: 954 },
     { mes: 'Septiembre', zona: 'Barrio El Retiro', fecha: 'Jueves 17/9', volantes: 1000, colaboradores: 5, estado: 'Programado', habitantes: 987 },
     { mes: 'Septiembre', zona: 'Barrio San José', fecha: 'Martes 22/9', volantes: 1000, colaboradores: 5, estado: 'Programado', habitantes: 2181 },
@@ -232,10 +224,30 @@ export const PLAN = {
 }
 
 export const AGENDA = [
-  { label: 'Resumen', index: 2 },
-  { label: 'Agosto', index: 3 },
-  { label: 'Septiembre', index: 8 },
-  { label: 'Colágeno', index: 14 },
-  { label: 'Plan de acción', index: 15 },
-  { label: 'Mapa', index: 16 },
+  { label: 'Agosto', index: 2 },
+  { label: 'Septiembre', index: 7 },
+  { label: 'Colágeno', index: 13 },
+  { label: 'Plan de acción', index: 14 },
+  { label: 'Mapa', index: 15 },
 ]
+
+// ---------- PLAN DE SEPTIEMBRE (Excel de la carpeta) ----------
+export const SEP_PLAN = {
+  title: 'Plan de acción · septiembre',
+  subtitle: 'Zona Tela Atlántida · Enfoque domicilio y venta local',
+  zonas: [
+    { zona: 'Barrio El Paraíso', fecha: 'Jueves 8/9', volantes: 1000, colaboradores: 5, estado: 'Ejecutado', habitantes: 1852 },
+    { zona: 'Barrio 4 de Enero', fecha: 'Martes 15/9', volantes: 1000, colaboradores: 5, estado: 'Programado', habitantes: 954 },
+    { zona: 'Barrio El Retiro', fecha: 'Jueves 17/9', volantes: 1000, colaboradores: 5, estado: 'Programado', habitantes: 987 },
+    { zona: 'Barrio San José', fecha: 'Martes 22/9', volantes: 1000, colaboradores: 5, estado: 'Programado', habitantes: 2181 },
+  ],
+  actividades: [
+    { nombre: 'Jornada Médica General', fecha: 'Miércoles 02/9', estado: 'Completado', detalle: 'Consulta médica gratis / generar venta' },
+    { nombre: 'Degustaciones de Colágeno', fecha: 'Todos los miércoles', estado: 'Completado', detalle: 'Impulsar producto Adiuvo' },
+    { nombre: 'Presencia de marca / Fiestas Patrias', fecha: '15 de septiembre', estado: 'Completado', detalle: 'Participar en fiestas patrias' },
+    { nombre: 'Jornada de la vista', fecha: '30 de septiembre', estado: 'Programado', detalle: 'Productos de la vista + regalía' },
+    { nombre: 'Sorteo de Microondas', fecha: 'Septiembre', estado: 'Programado', detalle: 'Dinámica de sorteo con clientes' },
+    { nombre: 'Café Gratis', fecha: 'Todos los miércoles', estado: 'Programado', detalle: 'Café y galletas para clientes' },
+    { nombre: 'Visitas a Hoteles', fecha: 'Jueves 24/9', estado: 'Programado', detalle: 'Isla Marina, Playa Caribe, Hotel Atenas, La Ostra' },
+  ],
+}

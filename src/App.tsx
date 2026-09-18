@@ -18,11 +18,11 @@ import {
   MapSlide,
   MonthDivider,
   PlanSlide,
-  SummarySlide,
+  SepPlanSlide,
 } from './components/slides'
 import { AGENDA, AGOSTO, SEPTIEMBRE } from './data/content'
 
-const TOTAL = 18
+const TOTAL = 17
 
 function useFullscreen() {
   const [on, setOn] = useState(false)
@@ -118,7 +118,6 @@ function Presentation() {
     () => [
       <CoverSlide key="cover" />,
       <AgendaSlide key="agenda" goTo={goTo} />,
-      <SummarySlide key="summary" goTo={goTo} />,
       <MonthDivider
         key="ago"
         month="Agosto 2026"
@@ -134,7 +133,9 @@ function Presentation() {
         description="Día del niño, jornada médica, plan de acción, fiestas patrias y vallas."
         photo="photos/sep-fiesta/01.jpg"
       />,
-      ...SEPTIEMBRE.map((a) => <ActivitySlide key={a.id} {...a} />),
+      ...SEPTIEMBRE.slice(0, 2).map((a) => <ActivitySlide key={a.id} {...a} />),
+      <SepPlanSlide key="sep-plan" />,
+      ...SEPTIEMBRE.slice(2).map((a) => <ActivitySlide key={a.id} {...a} />),
       <ColagenoSlide key="colageno" />,
       <PlanSlide key="plan" />,
       <MapSlide key="map" />,
@@ -151,8 +152,8 @@ function Presentation() {
     })?.label ?? (index === 0 ? 'Portada' : index === TOTAL - 1 ? 'Cierre' : '')
 
   return (
-    <div className="relative h-screen w-screen overflow-hidden bg-ink text-cream">
-      <div className="absolute inset-0 mx-auto aspect-video max-h-full max-w-[100vw]">
+    <div className="relative h-dvh w-screen overflow-hidden bg-ink text-cream">
+      <div className="absolute inset-0">
         <AnimatePresence mode="wait" custom={dir}>
           <motion.div
             key={index}
@@ -168,7 +169,7 @@ function Presentation() {
         </AnimatePresence>
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-20 flex items-center justify-between px-5 py-4">
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-20 flex items-center justify-between px-4 py-3 md:px-5 md:py-4">
         <p className="pointer-events-none text-[0.68rem] tracking-[0.2em] text-cream/45 uppercase">
           {String(index + 1).padStart(2, '0')} / {String(TOTAL).padStart(2, '0')} · {section}
         </p>
@@ -192,12 +193,12 @@ function Presentation() {
         </div>
       </div>
 
-      <div className="absolute right-5 bottom-5 left-5 z-20 flex items-center gap-4">
+      <div className="absolute right-3 bottom-3 left-3 z-20 flex items-center gap-3 md:right-5 md:bottom-5 md:left-5 md:gap-4">
         <button
           type="button"
           onClick={prev}
           disabled={index === 0}
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-cream/15 bg-ink/55 disabled:opacity-30"
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-cream/15 bg-ink/55 disabled:opacity-30 md:h-11 md:w-11"
           aria-label="Anterior"
         >
           <ChevronLeft className="h-5 w-5" />
@@ -219,7 +220,7 @@ function Presentation() {
           type="button"
           onClick={next}
           disabled={index === TOTAL - 1}
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-cream/15 bg-ink/55 disabled:opacity-30"
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-cream/15 bg-ink/55 disabled:opacity-30 md:h-11 md:w-11"
           aria-label="Siguiente"
         >
           <ChevronRight className="h-5 w-5" />
@@ -233,7 +234,7 @@ function Presentation() {
       ) : null}
 
       {menu ? (
-        <div className="absolute inset-0 z-40 bg-ink/92 px-10 py-16">
+        <div className="absolute inset-0 z-40 overflow-y-auto bg-ink/92 px-5 py-10 md:px-10 md:py-16">
           <div className="mx-auto flex h-full max-w-5xl flex-col">
             <div className="flex items-center justify-between">
               <p className="text-[0.7rem] tracking-[0.28em] text-gold uppercase">Menú principal</p>
