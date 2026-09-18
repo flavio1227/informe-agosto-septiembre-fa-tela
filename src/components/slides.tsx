@@ -7,6 +7,7 @@ import {
   MAPS_EMBED,
   META,
   OCT_ACT,
+  NOV_ACT,
   PLAN,
   SEP_PLAN,
   asset,
@@ -190,7 +191,7 @@ export function CoverSlide() {
             {META.period} {META.year}
           </p>
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-cream/80 md:mt-6 md:text-base">
-            Capacitación, jornadas, volanteo, degustación de colágeno y presencia de marca en la zona, con el plan de octubre.
+            Capacitación, jornadas, volanteo, degustación de colágeno y presencia de marca, con el plan hasta noviembre.
           </p>
         </div>
         <p className="text-[0.65rem] tracking-[0.18em] text-mute uppercase md:text-xs">
@@ -207,7 +208,7 @@ export function AgendaSlide({ goTo }: { goTo: GoTo }) {
       <Kicker>{META.period}</Kicker>
       <Title>Agenda</Title>
       <p className="mt-3 max-w-2xl text-sm text-cream/70 md:text-base">
-        Un recorrido por las actividades de agosto, septiembre y octubre. Pulse cualquier bloque para saltar.
+        Un recorrido por las actividades de agosto a noviembre. Pulse cualquier bloque para saltar.
       </p>
       <div className="mt-6 grid flex-1 grid-cols-2 gap-3 md:mt-8 md:gap-4 lg:grid-cols-3">
         {AGENDA.map((item, i) => (
@@ -304,7 +305,7 @@ export function SepPlanSlide() {
                   <td className="px-3 py-2 whitespace-nowrap text-cream/70">{z.fecha}</td>
                   <td className="px-3 py-2 text-right">{z.volantes.toLocaleString('es-HN')}</td>
                   <td className="hidden px-3 py-2 text-right text-cream/70 sm:table-cell">
-                    {z.habitantes.toLocaleString('es-HN')}
+                    {z.habitantes != null ? z.habitantes.toLocaleString('es-HN') : '—'}
                   </td>
                   <td className="px-3 py-2"><StatusPill estado={z.estado} /></td>
                 </tr>
@@ -363,7 +364,7 @@ export function OctPlanSlide() {
                   <td className="px-3 py-2 whitespace-nowrap text-cream/70">{z.fecha}</td>
                   <td className="px-3 py-2 text-right">{z.volantes.toLocaleString('es-HN')}</td>
                   <td className="hidden px-3 py-2 text-right text-cream/70 sm:table-cell">
-                    {z.habitantes.toLocaleString('es-HN')}
+                    {z.habitantes != null ? z.habitantes.toLocaleString('es-HN') : '—'}
                   </td>
                   <td className="px-3 py-2"><StatusPill estado={z.estado} /></td>
                 </tr>
@@ -427,6 +428,68 @@ export function OctPlanSlide() {
             </table>
           </div>
         ) : null}
+      </div>
+    </div>
+  )
+}
+
+export function NovPlanSlide() {
+  const zonas = PLAN.zonas.filter((z) => z.mes === 'Noviembre')
+  return (
+    <div className="slide-safe flex h-full flex-col overflow-y-auto">
+      <Kicker>Noviembre</Kicker>
+      <Title>Plan de acción · noviembre</Title>
+      <p className="mt-1 text-base text-gold/90 md:text-lg">
+        Zona Tela Atlántida · Enfoque domicilio y venta local
+      </p>
+      <div className="mt-4 grid min-h-0 flex-1 grid-cols-1 gap-4 md:mt-5 lg:grid-cols-2">
+        <div className="min-w-0 overflow-auto rounded-2xl border border-cream/10">
+          <table className="tbl w-full">
+            <thead className="sticky top-0 bg-pine">
+              <tr className="text-left">
+                <th className="px-3 py-2.5 font-medium text-cream/70">Zona a volantear</th>
+                <th className="px-3 py-2.5 font-medium text-cream/70">Fecha</th>
+                <th className="px-3 py-2.5 text-right font-medium text-cream/70">Volantes</th>
+                <th className="px-3 py-2.5 text-right font-medium text-cream/70">Colab.</th>
+                <th className="px-3 py-2.5 font-medium text-cream/70">Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              {zonas.map((z) => (
+                <tr key={z.zona} className="border-t border-cream/8">
+                  <td className="px-3 py-2">{z.zona}</td>
+                  <td className="px-3 py-2 whitespace-nowrap text-cream/70">{z.fecha}</td>
+                  <td className="px-3 py-2 text-right">{z.volantes.toLocaleString('es-HN')}</td>
+                  <td className="px-3 py-2 text-right text-cream/70">{z.colaboradores}</td>
+                  <td className="px-3 py-2"><StatusPill estado={z.estado} /></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="min-w-0 overflow-auto rounded-2xl border border-cream/10">
+          <div className="bg-pine px-4 py-3">
+            <p className="text-[0.68rem] font-medium tracking-[0.2em] text-gold uppercase">
+              Actividades adicionales · FA42
+            </p>
+          </div>
+          <ul className="space-y-0">
+            {NOV_ACT.map((a) => (
+              <li
+                key={a.nombre}
+                className="flex items-start justify-between gap-3 border-t border-cream/8 px-4 py-3 text-sm first:border-t-0"
+              >
+                <span className="min-w-0">
+                  <span className="text-cream">{a.nombre}</span>
+                  <span className="block text-xs text-cream/55">
+                    {a.fecha} · {a.detalle}
+                  </span>
+                </span>
+                <StatusPill estado={a.estado} />
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   )
@@ -501,7 +564,7 @@ export function PlanSlide() {
                   <td className="px-3 py-2 whitespace-nowrap text-cream/70">{z.fecha}</td>
                   <td className="px-3 py-2 text-right">{z.volantes.toLocaleString('es-HN')}</td>
                   <td className="hidden px-3 py-2 text-right text-cream/70 sm:table-cell">
-                    {z.habitantes.toLocaleString('es-HN')}
+                    {z.habitantes != null ? z.habitantes.toLocaleString('es-HN') : '—'}
                   </td>
                   <td className="px-3 py-2"><StatusPill estado={z.estado} /></td>
                 </tr>

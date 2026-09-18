@@ -16,7 +16,7 @@ export const META = {
   pharmacy: 'Farmacias del Ahorro',
   zone: 'Zona Tela',
   stores: ['FA42', 'FA59'],
-  period: 'Agosto – Octubre',
+  period: 'Agosto – Noviembre',
   year: 2026,
   website: 'www.farmaciasdelahorro.hn',
 }
@@ -200,6 +200,10 @@ export const PLAN = {
     { mes: 'Octubre', zona: 'La Curva', fecha: 'Martes 13/10', volantes: 1000, colaboradores: 5, estado: 'Programado', habitantes: 1107 },
     { mes: 'Octubre', zona: 'Las Brisas', fecha: 'Jueves 15/10', volantes: 1000, colaboradores: 5, estado: 'Programado', habitantes: 924 },
     { mes: 'Octubre', zona: 'Buena Vista', fecha: 'Martes 20/10', volantes: 600, colaboradores: 5, estado: 'Programado', habitantes: 591 },
+    { mes: 'Noviembre', zona: 'Aldea La Citronela', fecha: 'Martes 03/11', volantes: 1000, colaboradores: 5, estado: 'Programado', habitantes: null },
+    { mes: 'Noviembre', zona: 'Aldea La Hulera', fecha: 'Jueves 13/11', volantes: 1000, colaboradores: 5, estado: 'Programado', habitantes: null },
+    { mes: 'Noviembre', zona: 'Quebrada de Arena', fecha: 'Martes 17/11', volantes: 1000, colaboradores: 5, estado: 'Programado', habitantes: null },
+    { mes: 'Noviembre', zona: 'Aldea La Esperanza', fecha: 'Jueves 26/11', volantes: 600, colaboradores: 5, estado: 'Programado', habitantes: null },
   ],
   presupuesto: [
     { mes: 'Agosto', items: [
@@ -240,9 +244,10 @@ export const AGENDA = [
   { label: 'Agosto', index: 2 },
   { label: 'Septiembre', index: 7 },
   { label: 'Octubre', index: 13 },
-  { label: 'Colágeno', index: 15 },
-  { label: 'Plan de acción', index: 16 },
-  { label: 'Mapa', index: 17 },
+  { label: 'Noviembre', index: 15 },
+  { label: 'Colágeno', index: 17 },
+  { label: 'Plan de acción', index: 18 },
+  { label: 'Mapa', index: 19 },
 ]
 
 // ---------- PLAN DE OCTUBRE (Excel: hoja PT Septiembre a Octubre) ----------
@@ -253,6 +258,14 @@ export const OCT_ACT = [
   { nombre: 'Jornada Médica General', fecha: 'Miércoles 14/10', estado: 'Programado', detalle: 'Consulta médica gratis / generar venta' },
   { nombre: 'Sorteo de un Set de ollas', fecha: 'Sábado 31/10', estado: 'Programado', detalle: 'Dinámica de sorteo con clientes' },
   { nombre: 'Elaboración de Recetarios Médicos', fecha: 'Sábado 31/10', estado: 'Programado', detalle: 'Fortalecer las relaciones con los médicos' },
+]
+
+// ---------- PLAN DE NOVIEMBRE (Excel: hoja Noviembre 2026) ----------
+export const NOV_ACT = [
+  { nombre: 'Degustaciones de Colágeno', fecha: 'Todos los miércoles', estado: 'Programado', detalle: 'Impulsar producto Adiuvo' },
+  { nombre: 'Café Gratis', fecha: 'Todos los miércoles', estado: 'Programado', detalle: 'Café y galletas para clientes' },
+  { nombre: 'Jornada Médica General', fecha: 'Miércoles 25/11', estado: 'Programado', detalle: 'Consulta médica gratis / generar venta' },
+  { nombre: 'Ruleta Regalona por compra de Adiuvo', fecha: 'Sábado 31/10', estado: 'Programado', detalle: 'Impulso de Enqiovit y desparasitante' },
 ]
 
 // ---------- PLAN DE SEPTIEMBRE (Excel de la carpeta) ----------

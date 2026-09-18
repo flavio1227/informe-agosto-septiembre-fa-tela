@@ -1,6 +1,6 @@
 # Informe de actividades · Farmacias del Ahorro Zona Tela
 
-Presentación ejecutiva interactiva de las actividades de **agosto, septiembre y octubre 2026** para Farmacias del Ahorro (FA42 y FA59), zona Tela.
+Presentación ejecutiva interactiva de las actividades de **agosto a noviembre 2026** para Farmacias del Ahorro (FA42 y FA59), zona Tela.
 
 ## Ver la presentación
 
@@ -21,10 +21,11 @@ Presentación ejecutiva interactiva de las actividades de **agosto, septiembre y
 | Agosto | 3–7 (capacitación, jornada de piel, volanteo Pajuiles, perifoneos) |
 | Septiembre | 8–13 (día del niño, jornada médica, plan de acción en tabla, fiestas patrias, vallas) |
 | Octubre | 14–15 (plan de acción: zonas, actividades y presupuesto) |
-| Degustación de Colágeno | 16 (tabla del Excel + carrusel de fotografías) |
-| Plan de acción | 17 (zonas julio–octubre, presupuestos ago/sep/oct) |
-| Mapa | 18 (Google Maps centrado en Tela) |
-| Cierre | 19 |
+| Noviembre | 16–17 (plan de acción: zonas y actividades adicionales) |
+| Degustación de Colágeno | 18 (tabla del Excel + carrusel de fotografías) |
+| Plan de acción | 19 (zonas julio–noviembre, presupuestos ago/sep/oct) |
+| Mapa | 20 (Google Maps centrado en Tela) |
+| Cierre | 21 |
 
 ## Controles
 

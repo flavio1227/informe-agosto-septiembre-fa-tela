@@ -17,13 +17,14 @@ import {
   CoverSlide,
   MapSlide,
   MonthDivider,
+  NovPlanSlide,
   OctPlanSlide,
   PlanSlide,
   SepPlanSlide,
 } from './components/slides'
 import { AGENDA, AGOSTO, SEPTIEMBRE } from './data/content'
 
-const TOTAL = 19
+const TOTAL = 21
 
 function useFullscreen() {
   const [on, setOn] = useState(false)
@@ -144,6 +145,13 @@ function Presentation() {
         description="Volanteo programado, feriado morazánico, jornada médica y sorteos."
       />,
       <OctPlanSlide key="oct-plan" />,
+      <MonthDivider
+        key="nov"
+        month="Noviembre 2026"
+        title="Plan de acción de noviembre"
+        description="Volanteo programado, degustaciones, café gratis, jornada médica y ruleta regalona."
+      />,
+      <NovPlanSlide key="nov-plan" />,
       <ColagenoSlide key="colageno" />,
       <PlanSlide key="plan" />,
       <MapSlide key="map" />,
