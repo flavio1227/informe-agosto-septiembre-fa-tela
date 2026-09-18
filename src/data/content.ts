@@ -178,7 +178,7 @@ export const COLAGENO = {
   totalCajas: 11,
   photos: [
     ...Array.from({ length: 11 }, (_, i) => ({
-      src: asset(`photos/colageno/${String(i + 1).padStart(2, '0')}.${i < 6 ? 'png' : 'jpeg'}`),
+      src: asset(`photos/colageno/${String(i + 1).padStart(2, '0')}.${[2, 3, 8, 9, 10].includes(i + 1) ? 'jpeg' : 'png'}`),
       caption: 'Degustación de Colágeno Adiuvo.',
     })),
     { src: asset('photos/colageno/extra.jpg'), caption: 'Colágeno Adiuvo.' },
